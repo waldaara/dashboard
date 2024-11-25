@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid2'
 import Indicator from './components/IndicatorWeather';
 import TableWeather from './components/TableWeather';
 import ControlWeather from './components/ControlWeather';
-import SimpleLineChart from "./components/SimpleLineChart"
+import LineChartWeather from './components/LineChartWeather';
 
 function App() {
 
@@ -41,7 +41,9 @@ function App() {
         </Grid>
 
         {/* Gráfico */}
-        <Grid size={{ xs: 12, xl: 4 }}><SimpleLineChart/></Grid>
+             <Grid size={ ... }>
+                 <LineChartWeather/>
+             </Grid>
        
     </Grid>)
 }
