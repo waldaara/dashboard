@@ -24,7 +24,7 @@ function App() {
             </Grid>
 
             <Grid size={{ xs: 12, xl: 3 }}>
-                <IndicatorWeather title={'Indicator 4'} subtitle={'Unidad 4'} value={"3.21"} />
+                <IndicatorWeather title={'Indicator 4'} subtitle={'Unidad 4'} value={3.21} />
             </Grid>
 
             {/* Tabla */}
