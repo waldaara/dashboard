@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 
-interface Config {
+interface Indicator {
     title?: String;
     subtitle?: String;
     value: Number;
