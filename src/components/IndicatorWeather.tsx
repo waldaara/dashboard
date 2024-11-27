@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 interface Indicator {
     title?: String;
     subtitle?: String;
-    value: string;
+    value?: string;
 }
 
 export default function IndicatorWeather(config: Indicator) {
@@ -21,7 +21,7 @@ export default function IndicatorWeather(config: Indicator) {
                  {config.title} 
              </Typography>
              <Typography component="p" variant="h4">
-                 {config.value.toString()}
+                 {config.value}
              </Typography>
              <Typography color="text.secondary" sx={{ flex: 1 }}>
                  {config.subtitle}
