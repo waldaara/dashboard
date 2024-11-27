@@ -19,6 +19,7 @@ export default function ControlWeather() {
     const descriptionRef = useRef<HTMLDivElement>(null);
 
     {/* Variable de estado y función de actualización */ }
+    //@ts-ignore
     let [selected, setSelected] = useState(-1)
 
     {/* Arreglo de objetos */ }
