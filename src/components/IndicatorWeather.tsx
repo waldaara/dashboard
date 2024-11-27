@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 interface Indicator {
     title?: String;
     subtitle?: String;
-    value: Number;
+    value: string;
 }
 
 export default function IndicatorWeather(config: Indicator) {

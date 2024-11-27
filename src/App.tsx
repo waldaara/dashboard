@@ -120,7 +120,7 @@ function App() {
                                     <IndicatorWeather
                                         title={indicator["title"]}
                                         subtitle={indicator["subtitle"]}
-                                        value={Number(indicator["value"])} />
+                                        value={indicator["value"]!} />
                                 </Grid>
                             )
                         )
