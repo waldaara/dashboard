@@ -43,10 +43,10 @@ export default function BasicTable(props: MyProp) {
         <TableHead>
           <TableRow>
             <TableCell>Hora de inicio</TableCell>
-            <TableCell align="right">Hora de fin</TableCell>
-            <TableCell align="right">Precipitación</TableCell>
-            <TableCell align="right">Humedad</TableCell>
-            <TableCell align="right">Nubosidad</TableCell>
+            <TableCell>Hora de fin</TableCell>
+            <TableCell>Precipitación</TableCell>
+            <TableCell>Humedad</TableCell>
+            <TableCell>Nubosidad</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

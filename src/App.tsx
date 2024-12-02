@@ -104,7 +104,9 @@ function App() {
                     const dateStart = timeTag.getAttribute("from");
                     const dateEnd = timeTag.getAttribute("to");
 
-                    const precipitation = timeTag.getElementsByTagName("precipitacion")[0].getAttribute("probability");
+                    console.dir({ timeTag })
+
+                    const precipitation = timeTag.getElementsByTagName("precipitation")[0].getAttribute("probability");
                     const humidity = timeTag.getElementsByTagName("humidity")[0].getAttribute("value");
                     const clouds = timeTag.getElementsByTagName("clouds")[0].getAttribute("all");
 
@@ -163,7 +165,7 @@ function App() {
                         <ControlWeather />
                     </Grid>
                     <Grid size={{ xs: 12, xl: 9 }}>
-                        <TableWeather itemsIn={ items } />
+                        <TableWeather itemsIn={items} />
                     </Grid>
                 </Grid>
             </Grid>
