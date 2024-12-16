@@ -33,7 +33,7 @@ export interface GraficoProps {
 }
 
 export const Grafico = ({ chartData }: GraficoProps) => {
-  const [selectedDay, setSelectedDay] = React.useState("today");
+  const [selectedDay, setSelectedDay] = React.useState("all");
 
   const filteredData = chartData.filter((item) => {
     const date = new Date(item.hour);
@@ -42,13 +42,24 @@ export const Grafico = ({ chartData }: GraficoProps) => {
     today.setHours(0, 0, 0, 0);
 
     const targetDate = new Date(today);
+    let startDate: Date | null = null;
 
-    if (selectedDay === "tomorrow") {
-      targetDate.setDate(today.getDate() + 1);
-    } else if (selectedDay === "dayAfter") {
-      targetDate.setDate(today.getDate() + 2);
+    if (selectedDay === "twoDays") {
+      targetDate.setDate(today.getDate() + 3);
+      startDate = new Date(today);
+    } else if (selectedDay === "threeDays") {
+      targetDate.setDate(today.getDate() + 4);
+      startDate = new Date(today);
+    } else if (selectedDay === "all") {
+      return true; // Show all data
     }
 
+    // If a start date is defined, filter by the range
+    if (startDate) {
+      return date >= startDate && date < targetDate;
+    }
+
+    // Default case: only today
     return date.toDateString() === targetDate.toDateString();
   });
 
@@ -66,14 +77,14 @@ export const Grafico = ({ chartData }: GraficoProps) => {
             <SelectValue placeholder="Select a day" />
           </SelectTrigger>
           <SelectContent className="rounded-xl">
-            <SelectItem value="today" className="rounded-lg">
-              Today
+            <SelectItem value="all" className="rounded-lg">
+              All Data
             </SelectItem>
-            <SelectItem value="tomorrow" className="rounded-lg">
-              Tomorrow
+            <SelectItem value="twoDays" className="rounded-lg">
+              Next Two Days
             </SelectItem>
-            <SelectItem value="dayAfter" className="rounded-lg">
-              Day After Tomorrow
+            <SelectItem value="threeDays" className="rounded-lg">
+              Next Three Days
             </SelectItem>
           </SelectContent>
         </Select>
@@ -108,8 +119,9 @@ export const Grafico = ({ chartData }: GraficoProps) => {
               tickFormatter={(value) => {
                 const date = new Date(value);
                 return date.toLocaleTimeString("en-US", {
+                  month: "short",
+                  day: "numeric",
                   hour: "numeric",
-                  minute: "numeric",
                 });
               }}
             />
@@ -119,8 +131,9 @@ export const Grafico = ({ chartData }: GraficoProps) => {
                 <ChartTooltipContent
                   labelFormatter={(value) => {
                     return new Date(value).toLocaleTimeString("en-US", {
+                      month: "short",
+                      day: "numeric",
                       hour: "numeric",
-                      minute: "numeric",
                     });
                   }}
                   indicator="dot"
